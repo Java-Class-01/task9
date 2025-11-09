@@ -13,5 +13,17 @@ public class OrganizedSwingApp {
 
     // Store users
     Map<String, User> users = new HashMap<>();
+
+    // ----------- COMPONENTS FOR SIGNUP -------------
+    JTextField txtFirstName, txtLastName, txtAge, txtEmail, txtPhone, txtUsername;
+    JPasswordField txtPassword;
+    JButton btnCreateAccount, btnGoToLogin;
+
+    JTextField txtLoginUsername;
+    JPasswordField txtLoginPassword;
+    JButton btnLogin, btnGoToSignup;
+
+    JLabel lblWelcome;
+    JButton btnLogout;
 }
 
