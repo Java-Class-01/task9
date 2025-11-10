@@ -217,11 +217,21 @@ public class OrganizedSwingApp {
         } else {
             JOptionPane.showMessageDialog(MainFrame, "Invalid username or password.", "Error", JOptionPane.ERROR_MESSAGE);
         }}
+    //user class
+    static class User {
+        String firstName, lastName, age, email, phone, username, password;
 
-
-
-
-
-
+        public User(String firstName, String lastName, String age, String email, String phone, String username, String password) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.email = email;
+            this.phone = phone;
+            this.username = username;
+            this.password = password;
         }
+    }
+
+
+    }
 
