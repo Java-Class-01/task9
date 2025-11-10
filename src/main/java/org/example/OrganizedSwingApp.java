@@ -130,5 +130,44 @@ public class OrganizedSwingApp {
         return panel;
     }
     // add ur part here
+    //login panel
+    public JPanel PrepareLoginPanel() {
+        JPanel panel = new JPanel(null);
+        panel.setBorder(BorderFactory.createTitledBorder("Login"));
+
+        JLabel lblLoginTitle = new JLabel("USER LOGIN");
+        lblLoginTitle.setFont(new Font("Arial", Font.BOLD, 18));
+        lblLoginTitle.setBounds(50, 50, 400, 30);
+        panel.add(lblLoginTitle);
+
+        JLabel lblUser = new JLabel("Username:");
+        lblUser.setBounds(50, 120, 150, 30);
+        panel.add(lblUser);
+        txtLoginUsername = new JTextField();
+        txtLoginUsername.setBounds(200, 120, 300, 30);
+        panel.add(txtLoginUsername);
+        JLabel lblPass = new JLabel("Password:");
+        lblPass.setBounds(50, 160, 150, 30);
+        panel.add(lblPass);
+        txtLoginPassword = new JPasswordField();
+        txtLoginPassword.setBounds(200, 160, 300, 30);
+        panel.add(txtLoginPassword);
+
+        btnLogin = new JButton("Login");
+        btnLogin.setBounds(200, 210, 200, 40);
+        panel.add(btnLogin);
+
+        btnGoToSignup = new JButton("Create a new account");
+        btnGoToSignup.setBounds(200, 260, 200, 30);
+        panel.add(btnGoToSignup);
+        btnLogin.addActionListener(e -> LoginUser());
+        btnGoToSignup.addActionListener(e -> cardLayout.show(PanelMain, "signup"));
+
+        return panel;
+    }
+
+
+
+
 }
 
