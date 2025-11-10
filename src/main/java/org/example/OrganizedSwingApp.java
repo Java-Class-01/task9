@@ -182,10 +182,46 @@ public class OrganizedSwingApp {
         btnLogout.addActionListener(e -> cardLayout.show(PanelMain, "login"));
         return panel;
     }
+    //action methods
+    public void CreateAccount() {
+        String fname = txtFirstName.getText();
+        String lname = txtLastName.getText();
+        String age = txtAge.getText();
+        String email = txtEmail.getText();
+        String phone = txtPhone.getText();
+        String username = txtUsername.getText();
+        String password = new String(txtPassword.getPassword());
+
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(MainFrame, "Username and Password required.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (users.containsKey(username)) {
+            JOptionPane.showMessageDialog(MainFrame, "Username already exists!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        users.put(username, new User(fname, lname, age, email, phone, username, password));
+        JOptionPane.showMessageDialog(MainFrame, "Account Created Successfully!");
+
+        cardLayout.show(PanelMain, "login");
+    }
+
+    public void LoginUser() {
+        String username = txtLoginUsername.getText();
+        String password = new String(txtLoginPassword.getPassword());
+
+        if (users.containsKey(username) && users.get(username).password.equals(password)) {
+            lblWelcome.setText("Welcome, " + users.get(username).firstName + " " + users.get(username).lastName + "!");
+            cardLayout.show(PanelMain, "dashboard");
+        } else {
+            JOptionPane.showMessageDialog(MainFrame, "Invalid username or password.", "Error", JOptionPane.ERROR_MESSAGE);
+        }}
 
 
 
 
 
-}
+
+        }
 
