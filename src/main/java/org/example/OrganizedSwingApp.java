@@ -165,6 +165,24 @@ public class OrganizedSwingApp {
 
         return panel;
     }
+    //dashboard panel
+    public JPanel PrepareDashboardPanel() {
+        JPanel panel = new JPanel(null);
+        panel.setBorder(BorderFactory.createTitledBorder("Dashboard"));
+
+        lblWelcome = new JLabel("", SwingConstants.CENTER);
+        lblWelcome.setFont(new Font("Arial", Font.BOLD, 24));
+        lblWelcome.setBounds(50, 100, 600, 50);
+        panel.add(lblWelcome);
+
+        btnLogout = new JButton("Logout");
+        btnLogout.setBounds(250, 200, 150, 40);
+        panel.add(btnLogout);
+
+        btnLogout.addActionListener(e -> cardLayout.show(PanelMain, "login"));
+        return panel;
+    }
+
 
 
 
