@@ -130,5 +130,108 @@ public class OrganizedSwingApp {
         return panel;
     }
     // add ur part here
-}
+    //login panel
+    public JPanel PrepareLoginPanel() {
+        JPanel panel = new JPanel(null);
+        panel.setBorder(BorderFactory.createTitledBorder("Login"));
+
+        JLabel lblLoginTitle = new JLabel("USER LOGIN");
+        lblLoginTitle.setFont(new Font("Arial", Font.BOLD, 18));
+        lblLoginTitle.setBounds(50, 50, 400, 30);
+        panel.add(lblLoginTitle);
+
+        JLabel lblUser = new JLabel("Username:");
+        lblUser.setBounds(50, 120, 150, 30);
+        panel.add(lblUser);
+        txtLoginUsername = new JTextField();
+        txtLoginUsername.setBounds(200, 120, 300, 30);
+        panel.add(txtLoginUsername);
+        JLabel lblPass = new JLabel("Password:");
+        lblPass.setBounds(50, 160, 150, 30);
+        panel.add(lblPass);
+        txtLoginPassword = new JPasswordField();
+        txtLoginPassword.setBounds(200, 160, 300, 30);
+        panel.add(txtLoginPassword);
+
+        btnLogin = new JButton("Login");
+        btnLogin.setBounds(200, 210, 200, 40);
+        panel.add(btnLogin);
+
+        btnGoToSignup = new JButton("Create a new account");
+        btnGoToSignup.setBounds(200, 260, 200, 30);
+        panel.add(btnGoToSignup);
+        btnLogin.addActionListener(e -> LoginUser());
+        btnGoToSignup.addActionListener(e -> cardLayout.show(PanelMain, "signup"));
+
+        return panel;
+    }
+    //dashboard panel
+    public JPanel PrepareDashboardPanel() {
+        JPanel panel = new JPanel(null);
+        panel.setBorder(BorderFactory.createTitledBorder("Dashboard"));
+
+        lblWelcome = new JLabel("", SwingConstants.CENTER);
+        lblWelcome.setFont(new Font("Arial", Font.BOLD, 24));
+        lblWelcome.setBounds(50, 100, 600, 50);
+        panel.add(lblWelcome);
+
+        btnLogout = new JButton("Logout");
+        btnLogout.setBounds(250, 200, 150, 40);
+        panel.add(btnLogout);
+
+        btnLogout.addActionListener(e -> cardLayout.show(PanelMain, "login"));
+        return panel;
+    }
+    //action methods
+    public void CreateAccount() {
+        String fname = txtFirstName.getText();
+        String lname = txtLastName.getText();
+        String age = txtAge.getText();
+        String email = txtEmail.getText();
+        String phone = txtPhone.getText();
+        String username = txtUsername.getText();
+        String password = new String(txtPassword.getPassword());
+
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(MainFrame, "Username and Password required.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (users.containsKey(username)) {
+            JOptionPane.showMessageDialog(MainFrame, "Username already exists!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        users.put(username, new User(fname, lname, age, email, phone, username, password));
+        JOptionPane.showMessageDialog(MainFrame, "Account Created Successfully!");
+
+        cardLayout.show(PanelMain, "login");
+    }
+
+    public void LoginUser() {
+        String username = txtLoginUsername.getText();
+        String password = new String(txtLoginPassword.getPassword());
+
+        if (users.containsKey(username) && users.get(username).password.equals(password)) {
+            lblWelcome.setText("Welcome, " + users.get(username).firstName + " " + users.get(username).lastName + "!");
+            cardLayout.show(PanelMain, "dashboard");
+        } else {
+            JOptionPane.showMessageDialog(MainFrame, "Invalid username or password.", "Error", JOptionPane.ERROR_MESSAGE);
+        }}
+    //user class
+    static class User {
+        String firstName, lastName, age, email, phone, username, password;
+
+        public User(String firstName, String lastName, String age, String email, String phone, String username, String password) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.email = email;
+            this.phone = phone;
+            this.username = username;
+            this.password = password;
+        }
+    }
+
+
+    }
 
