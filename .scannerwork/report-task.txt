@@ -1,0 +1,6 @@
+projectKey=TaskNine
+serverUrl=http://localhost:9000
+serverVersion=25.11.0.114957
+dashboardUrl=http://localhost:9000/dashboard?id=TaskNine
+ceTaskId=4024c0bc-409e-4abf-96bb-14a4338c04b9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=4024c0bc-409e-4abf-96bb-14a4338c04b9
