@@ -65,7 +65,7 @@ jobs:
           echo "Triggering Jenkins pipeline..."
           
           # Hardcoded Jenkins configuration - Update these values for your Jenkins instance
-          JENKINS_URL=" https://5179218cf488.ngrok-free.app"  # Change to your Jenkins URL
+          JENKINS_URL="https://9e1f541d36f6.ngrok-free.app"  # Change to your Jenkins URL
           JENKINS_USER="brice"                  # Change to your Jenkins username
           JENKINS_TOKEN="110ab4bdced5725271e4cf91208945d4b6"   # Change to your Jenkins API token
           JENKINS_JOB_NAME="task999"              # Change to your Jenkins job name
