@@ -1,10 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Deploy') {
+        stage('Run Container') {
             steps {
-                bat 'kubectl create deployment myapp --image=nginx'
-                bat 'kubectl expose deployment myapp --port=80 --type=LoadBalancer'
+                bat '''
+                docker run -d --name myapp -p 8080:80 nginx
+                echo "✅ Container running at http://localhost:8080"
+                '''
             }
         }
     }
