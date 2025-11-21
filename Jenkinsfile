@@ -1,17 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build Docker Image') {
+        stage('Deploy') {
             steps {
-                sh 'docker build -t myapp:latest .'
-            }
-        }
-        stage('Deploy to K8s') {
-            steps {
-                sh '''
-                kubectl create deployment myapp --image=myapp:latest
-                kubectl expose deployment myapp --port=80 --type=LoadBalancer
-                '''
+                bat 'kubectl create deployment myapp --image=nginx'
+                bat 'kubectl expose deployment myapp --port=80 --type=LoadBalancer'
             }
         }
     }
