@@ -85,5 +85,14 @@ pipeline {
         success {
             echo 'Step 1 completed successfully! Ready for Nexus/Artifactory integration.'
         }
+
+        echo Your artifact is automatically available via JitPack!
+echo Developers can use it by adding to their pom.xml:
+echo.
+echo <dependency>
+echo     <groupId>com.github.Java-Class-01</groupId>
+echo     <artifactId>task9</artifactId>
+echo     <version>main-SNAPSHOT</version>
+echo </dependency>
     }
 }
